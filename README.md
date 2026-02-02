@@ -165,5 +165,5 @@ $$\mathbf{x}(t+\Delta t) = \mathbf{x}(t) + \mathbf{v}(t)\Delta t$$
 
 2. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/NiQkir1/GravitySim.git
+   git clone https://github.com/NiQkir1/GravitySimulator.git
    cd GravitySim

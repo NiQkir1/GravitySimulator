@@ -19,11 +19,11 @@
 #include <imgui_impl_opengl3.h>
 #include <string>
 #include "math.h"
-#include "phys.h"
-#include "camera.h"
-#include "shader.h"
-#include "geometry.h"
-#include "shaderSetup.h"
+#include "phys/phys.h"
+#include "render/camera.h"
+#include "render/shader.h"
+#include "phys/geometry.h"
+#include "render/shaderSetup.h"
 
 int main() {
     if (!glfwInit()) {
@@ -35,7 +35,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "3BP", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Gravity Simulator", nullptr, nullptr);
     if (!window) {
         std::cerr << "Не удалось создать окно GLFW\n";
         glfwTerminate();
@@ -79,10 +79,11 @@ int main() {
 
     int winWidth = 800, winHeight = 600;
 
-    std::vector<Body> bodies;
-
     const float G = 1.0f;
     float dt = 0.001f;
+
+    // ------ init body ------
+    std::vector<Body> bodies;
 
     //body
     Body cube{};
@@ -182,6 +183,7 @@ int main() {
         Mat4 view = lookAt(camera.position, center, up);
 
         glUseProgram(shaderProgram);
+
         glUniformMatrix4fv(uniforms.viewLoc, 1, GL_FALSE, view.m);
         glUniformMatrix4fv(uniforms.projLoc, 1, GL_FALSE, projection.m);
 
@@ -269,11 +271,13 @@ int main() {
         for (size_t i = 0; i < bodies.size(); ++i) {
             Body& b = bodies[i];  
             {
-                if (ImGui::CollapsingHeader(("Body " + std::to_string(i)).c_str(), ImGuiTreeNodeFlags_DefaultOpen)) 
-                    ImGui::SliderFloat(("mass##" + std::to_string(i)).c_str(), &b.mass, 0.1f, 2000.0f); 
-                    ImGui::InputFloat3(("pos##" + std::to_string(i)).c_str(), &b.pos.x); 
+                if (ImGui::CollapsingHeader(("Body " + std::to_string(i)).c_str(), ImGuiTreeNodeFlags_NoTreePushOnOpen))
+                {
+                    ImGui::SliderFloat(("mass##" + std::to_string(i)).c_str(), &b.mass, 0.1f, 2000.0f);
+                    ImGui::InputFloat3(("pos##" + std::to_string(i)).c_str(), &b.pos.x);
                     ImGui::InputFloat3(("vel##" + std::to_string(i)).c_str(), &b.vel.x);
                     ImGui::ColorEdit3(("col##" + std::to_string(i)).c_str(), &b.color.x);
+                }
             }
         }
         ImGui::End();

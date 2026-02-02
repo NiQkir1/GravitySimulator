@@ -16,9 +16,7 @@ Vec3 Camera::getFront() const
         }
         return front;
 }
-
-
-
+ 
 Vec3 Camera::getRight() const {
     Vec3 front = getFront();
     Vec3 worldUp{ 0.0f, 1.0f, 0.0f };
@@ -46,8 +44,7 @@ void framebuffer_size_callback(GLFWwindow*, int width, int height) {
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     ImGuiIO& io = ImGui::GetIO();
-    if (io.WantCaptureMouse || glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_MIDDLE) == GLFW_PRESS) return; // если мышь в GUI Ч игнорируем
-
+    if (io.WantCaptureMouse || glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_MIDDLE) == GLFW_PRESS) return;
     if (firstMouse) {
         lastMouseX = static_cast<float>(xpos);
         lastMouseY = static_cast<float>(ypos);
@@ -55,7 +52,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     }
 
     float xoffset = static_cast<float>(xpos) - lastMouseX;
-    float yoffset = lastMouseY - static_cast<float>(ypos); // инвертировано (Y снизу вверх)
+    float yoffset = lastMouseY - static_cast<float>(ypos);
     lastMouseX = static_cast<float>(xpos);
     lastMouseY = static_cast<float>(ypos);
 
@@ -65,7 +62,6 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     camera.yaw += xoffset;
     camera.pitch += yoffset;
 
-    // ќграничиваем pitch, чтобы не переворачивать камеру
     if (camera.pitch > 89.0f)
         camera.pitch = 89.0f;
     if (camera.pitch < -89.0f)

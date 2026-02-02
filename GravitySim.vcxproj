@@ -127,21 +127,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="camera.cpp" />
-    <ClCompile Include="geometry.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="math.cpp" />
-    <ClCompile Include="phys.cpp" />
-    <ClCompile Include="shader.cpp" />
-    <ClCompile Include="shaderSetup.cpp" />
+    <ClCompile Include="src\phys\body.cpp" />
+    <ClCompile Include="src\render\camera.cpp" />
+    <ClCompile Include="src\phys\geometry.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\math\math.cpp" />
+    <ClCompile Include="src\phys\phys.cpp" />
+    <ClCompile Include="src\render\shader.cpp" />
+    <ClCompile Include="src\render\shaderSetup.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="geometry.h" />
-    <ClInclude Include="math.h" />
-    <ClInclude Include="phys.h" />
-    <ClInclude Include="shader.h" />
-    <ClInclude Include="ShaderSetup.h" />
+    <ClInclude Include="src\phys\body.h" />
+    <ClInclude Include="src\render\camera.h" />
+    <ClInclude Include="src\phys\geometry.h" />
+    <ClInclude Include="src\math\math.h" />
+    <ClInclude Include="src\phys\phys.h" />
+    <ClInclude Include="src\render\shader.h" />
+    <ClInclude Include="src\render\ShaderSetup.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

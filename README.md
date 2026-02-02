@@ -13,7 +13,7 @@
 
 **3D Gravity Simulation** — это интерактивная визуализация N-body системы с поддержкой физики, столкновений и управления камерой. Проект создан для демонстрации принципов гравитационного взаимодействия и визуализации динамики тел в трёхмерном пространстве.
 
-![GravitySim](https://github.com/NiQkir1/GravitySim/blob/master/pic/image1.png)
+![GravitySim](https://github.com/NiQkir1/GravitySimulator/blob/master/pic/image1.png)
 
 ### Основные возможности:
 
@@ -58,9 +58,9 @@
 
 
 
-\[
-F_{ij} = \frac{G m_i m_j}{r_{ij}^2}
-\]
+
+$$F_{ij} = \frac{G m_i m_j}{r_{ij}^2}$$
+
 
 
 
@@ -76,16 +76,16 @@ F_{ij} = \frac{G m_i m_j}{r_{ij}^2}
 
 
 
-\[
-\mathbf{v}(t+\Delta t) = \mathbf{v}(t) + \mathbf{a}(t)\Delta t
-\]
+
+$$\mathbf{v}(t+\Delta t) = \mathbf{v}(t) + \mathbf{a}(t)\Delta t$$
 
 
 
 
-\[
-\mathbf{x}(t+\Delta t) = \mathbf{x}(t) + \mathbf{v}(t)\Delta t
-\]
+
+
+$$\mathbf{x}(t+\Delta t) = \mathbf{x}(t) + \mathbf{v}(t)\Delta t$$
+
 
 
 

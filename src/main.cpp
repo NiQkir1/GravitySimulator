@@ -1,4 +1,4 @@
-﻿/*
+/*
  * 3D Gravity Simulation
 
  * Func:
@@ -12,13 +12,17 @@
  */
 
 
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 #include <string>
-#include "math.h"
+#include "math/math.h"
 #include "phys/phys.h"
 #include "render/camera.h"
 #include "render/shader.h"
@@ -151,6 +155,11 @@ int main() {
 
     Vec3 lastPos = camera.position;
 
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glLineWidth(2.0f); // толщина линий 
+    glColor3f(1.0f, 1.0f, 1.0f);
+
     while (!glfwWindowShouldClose(window)) {
         float currentFrameTime = static_cast<float>(glfwGetTime());
         float deltaTime = currentFrameTime - lastFrameTime;
@@ -172,7 +181,7 @@ int main() {
             simTime += dt;
         }
 
-        glClearColor(0.02f, 0.05f, 0.08f, 1.0f);
+        glClearColor(0.12f, 0.05f, 0.08f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         Vec3 front = camera.getFront();

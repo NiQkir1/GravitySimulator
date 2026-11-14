@@ -5,7 +5,7 @@
 [![OpenGL](https://img.shields.io/badge/API-OpenGL-green.svg?style=plastic)](https://www.opengl.org/)  
 [![x64](https://img.shields.io/badge/arch-x64-red.svg?style=plastic)](https://en.wikipedia.org/wiki/X64)  
 
-<a href="https://github.com/NiQkir1/GravitySim"><img alt="platforms" src="https://img.shields.io/badge/platforms-Windows-blue?style=flat-square"/></a>
+<a href="https://github.com/NiQkir1/GravitySimulator"><img alt="platforms" src="https://img.shields.io/badge/platforms-Windows-blue?style=flat-square"/></a>
 
 ---
 
